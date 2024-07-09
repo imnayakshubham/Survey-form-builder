@@ -382,7 +382,6 @@ function App() {
                         inputform.setFieldValue(
                           "input_type", component.value
                         )
-
                       }}>{component.label}</div>
                     </div>
                     )}
