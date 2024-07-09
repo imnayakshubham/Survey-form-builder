@@ -316,10 +316,10 @@ export const SurveyEditor = () => {
                 {
                     selectedSurvey &&
                     <div className='survey__form__container h-screen p-2 border'>
-                        <div className={`flex ${!isPreviewMode ? 'justify-between' : "justify-center"} h-full`}>
-                            <div className={`left bg-gray-300 h-[100%] ${isPreviewMode ? 'w-full sm:w-[75%] md:w-[50%]' : "w-[70%]"} overflow-y-scroll p-2 `}>
-                                <div className='flex justify-between p-2 border flex-wrap gap-4 md:gap-0'>
-                                    <div className='flex-1 flex-bold text-lg'>{selectedSurvey.name}</div>
+                        <div className={`flex ${!isPreviewMode ? 'justify-start md:justify-between' : "justify-center"}  flex-col-reverse md:flex-row h-full`}>
+                            <div className={`left bg-gray-300 h-[85%] md:h-[100%] ${isPreviewMode ? 'w-full sm:w-[75%] md:w-[50%]' : "w-full md:w-[70%]"} overflow-y-scroll p-2 `}>
+                                <div className=' justify-between flex p-2 border-b flex-wrap gap-4 md:gap-0'>
+                                    <div className='flex-bold text-lg'>{selectedSurvey.name}</div>
                                     {
                                         !showSubmitButton &&
                                         <div className='flex gap-2 items-center justify-end w-full sm:w-auto'>
@@ -361,11 +361,11 @@ export const SurveyEditor = () => {
                             {
                                 !isPreviewMode &&
 
-                                <div className="right bg-gray-400 h-[100%] w-[30%] p-2 overflow-y-scroll ">
+                                <div className="right bg-gray-400 h-fit md:h-[100%] w-full  md:w-[30%] p-2 overflow-y-scroll ">
                                     <div>
                                         Form Elements
                                     </div>
-                                    <div className='border w-full my-2'>
+                                    <div className='border w-full my-2 grid grid-cols-2'>
                                         {
                                             components.map((component) => <div className='p-2 border cursor-pointer' key={component.value}>
                                                 <div onClick={() => {

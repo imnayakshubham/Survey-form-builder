@@ -9,7 +9,7 @@ export const SurveysListPage = () => {
 
                 <h1 className="font-extrabold text-4xl">Surveys</h1>
                 <div className="border-b-2 w-full"></div>
-                <div className='flex gap-2 p-2 items-center w-full'>
+                <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-2 p-2 items-center w-full'>
                     {
                         surveys.map((survey) => {
                             return <div
