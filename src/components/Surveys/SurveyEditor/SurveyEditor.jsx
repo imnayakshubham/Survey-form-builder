@@ -142,7 +142,7 @@ export const SurveyEditor = () => {
 
     const selectOptions = useMemo(() => [
         { label: 'Single Select', value: 'single_select' },
-        { label: 'Multiple Select', value: 'multiple_select' },
+        { label: 'Multiple Select', value: 'multi_select' },
     ], [])
 
     const getSettingComponents = useCallback((component) => {
@@ -296,6 +296,7 @@ export const SurveyEditor = () => {
     }, [inputTypeSelectionOptions, selectOptions])
 
     const handlePublish = (selectedSurvey) => {
+        setIsPreviewMode(true)
         console.log({ surveyItems, selectedSurvey })
         setShowSubmitButton(true)
     }
@@ -334,6 +335,7 @@ export const SurveyEditor = () => {
                                         form={surveyform}
                                         layout="vertical"
                                         onFinish={handleFormSubmission}
+                                        autoComplete="off"
                                     >
                                         {
                                             surveyItems.surveyForm.map((survey) => <div className='flex gap-2 w-full justify-between' key={survey.input_type}>
@@ -348,9 +350,11 @@ export const SurveyEditor = () => {
                                         }
                                         {
                                             showSubmitButton &&
-                                            <Form.Item>
-                                                <Button type='primary' htmlType='submit'>Submit</Button>
-                                            </Form.Item>
+                                            <div className='flex justify-end'>
+                                                <Form.Item>
+                                                    <Button type='primary' htmlType='submit'>Submit</Button>
+                                                </Form.Item>
+                                            </div>
                                         }
                                     </Form>
 
